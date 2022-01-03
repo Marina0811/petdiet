@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 @extends('layouts.layout')
 
 @section('title', 'Myペットの体重登録')
@@ -20,7 +19,14 @@
           </ul> 
         @endif
           
-        
+       <div class="form-group row"> 
+          <label class="col-md-2">今日の体重は？</label>
+            <div class="col-md-10"> 
+              <input type="text" class="form-control" name="weight" value="{{ old('weight') }}">
+            </div>
+        </div>
+        {{ csrf_field() }}
+        <input type="submit" class="btn btn-primary" value="登録"> 
         
         </form>
       </div>

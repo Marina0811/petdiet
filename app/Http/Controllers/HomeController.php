@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class HomeController extends Controller
 {
     /**
@@ -23,6 +25,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // if (!session()->has('targetDay'))
+        // {
+        //     session()->put('targetDay', Carbon::now());
+            
+        // }
+        session()->put('targetDay', Carbon::tomorrow());
         return view('home');
     }
 }
