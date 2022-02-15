@@ -7,9 +7,6 @@
 
         <title>Petdiet</title>
         
-        <link href='fullcalendar/lib/main.css' rel='stylesheet'>
-        <script src='fullcalendar/lib/main.js'></script>
-        
     </head>
     <body>
         <h1>Petdiet　Home</h1>
@@ -24,8 +21,9 @@
                     <li><a href="#">おやつ</a></li>
                     <li><a href="#">運動</a></li>
                     <li><a href="#">メモ</a></li>
+                    <li><a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">カレンダー</a></li>
                     <li><a href="#">ペット登録</a></li>
-                    <div id="calendar"></div>
+                    
                     @if(Auth::user()->mypets->count()>0)
                     <li><a href="{{ action('MypetController@edit', ['id' => Auth::user()->mypets[0]->id]) }}">ペット編集</a></li>
                     @else
