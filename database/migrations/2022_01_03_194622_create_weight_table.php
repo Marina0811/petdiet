@@ -13,10 +13,11 @@ class CreateWeightTable extends Migration
      */
     public function up()
     {
-        Schema::create('weight', function (Blueprint $table) {
+        Schema::create('weights', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->date('date');
             $table->integer('pet_id');
-            $table->integer('weight');
+            $table->double('weight',3,1);
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateWeightTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('weight');
+        Schema::dropIfExists('weights');
     }
 }

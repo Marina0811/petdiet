@@ -25,12 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // if (!session()->has('targetDay'))
-        // {
-        //     session()->put('targetDay', Carbon::now());
+        if (!session()->has('targetDay'))
+        {
+            session()->put('targetDay', Carbon::today());
             
-        // }
-        session()->put('targetDay', Carbon::tomorrow());
+        }
         return view('home');
     }
 }

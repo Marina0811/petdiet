@@ -13,10 +13,17 @@ use Illuminate\Support\Facades\Auth;
 
 class WeightController extends Controller
 {
-    public function add()
+    public function add(Request $request)
     {
-    
-        return view ('weight.create');
+        if (empty($request->id)) {
+            abort(404);    
+        }
+        // 指定された日付＋ペットの体重を取得する
+        $weight = Weight::where('pet_id', $request->id)
+            ->where('date', session()->get('targetDay')->format('Y-m-d'))
+            ->first();
+        
+        return view ('weight.create', ['weight' => $weight]);
         
     }
     
@@ -27,14 +34,17 @@ class WeightController extends Controller
         $form = $request->all();
         
         unset($form['_token']);
-        
-        unset($form['image']);
-        
+        if (!session()->has('targetDay'))
+        {
+            session()->put('targetDay', Carbon::today());
+            
+        }
         $weight->fill($form);
-        $weight->user_id=Auth::id();
+        $weight->date= session()->get('targetDay');
+        $weight->pet_id=Auth::user()->mypets[0]->id;
         $weight->save();
      
-        return redirect('weight.create');
+        return redirect('weight/create');
       
         
     }
@@ -64,12 +74,12 @@ class WeightController extends Controller
       $mypet->fill($weight_form)->save();
 
 
-      return redirect('weight.create');
+      return redirect('weight/create');
       
-      $history = new History();
-      $history->mypet_id = $weight->id;
-      $history->edited_at = Carbon::now();
-      $history->save();
+    //   $history = new History();
+    //   $history->mypet_id = $weight->id;
+    //   $history->edited_at = Carbon::now();
+    //   $history->save();
 
   }
   

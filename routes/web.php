@@ -34,6 +34,10 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/home', 'HomeController@index')->name('home');
     
     Route::get('/mypet', 'MypetController@index');
+    
+    Route::get('/calender', "EventController@index");
+    
+    Route::post('/store', "EventController@store");
 
 });
 Auth::routes();

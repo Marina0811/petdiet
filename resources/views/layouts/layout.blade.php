@@ -2,8 +2,6 @@
 <html lang="{{ app()->getLocale() }}">
     <head>
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- CSRF Token -->
          {{-- 後の章で説明します --}}
@@ -41,19 +39,47 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-
+                            <p>キャンセル</p>
+                        </ul>
+                        
+                        <!-- Right Side Of Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <div class="text-center col-md-10 mx-auto col-lg-10">
+                                <h1 contenteditable="true">{{ Session::get('targetDay') }}</h1>
+                            </div>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
+                            <p>HOME</p>
                         </ul>
                     </div>
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
-            {{ Session::get('targetDay') }}
-
-            <main class="py-4">
+            
+            <div class="py-5">
+                <div class="container">
+                    <div class="row w-60">
+                        <div class="col-md-6" style="">
+                            <div class="col-md-12 d-flex flex-row justify-content-between">
+                                <div class="row">
+                                    <div class="col-md-4" ></div>
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4 p-2 py-3 d-flex flex-row justify-content-around align-items-center flex-grow-1"></div>
+                                    </div>
+                                    </div>
+                                    </div>
+                                    <div class="text-center col-md-6 mx-auto col-lg-7">
+                                        <h1 contenteditable="true">{{ Session::get('targetDay') }}</h1>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
             </main>

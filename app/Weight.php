@@ -9,8 +9,7 @@ class Weight extends Model
     protected $guarded = array('id');
 
     public static $rules = array(
-        'weight' => 'required'
-        
+        'weight' => 'required|numeric'
     );
     
 }

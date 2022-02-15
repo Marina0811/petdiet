@@ -23,7 +23,11 @@
         <div class="form-group row"> 
           <label class="col-md-2">今日の体重は？</label>
             <div class="col-md-10"> 
+            @if ($weight != null) 
+              <input type="text" class="form-control" name="weight" value="{{ $weight->weight }}">
+            @else
               <input type="text" class="form-control" name="weight" value="{{ old('weight') }}">
+            @endif
             </div>
         </div>
         {{ csrf_field() }}
@@ -32,3 +36,5 @@
       </div>
     </div>
   </div>
+
+@endsection
