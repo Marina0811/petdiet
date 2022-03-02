@@ -14,13 +14,7 @@
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
-          events: [
-            { // this object will be "parsed" into an Event Object
-              title: 'テスト', // a property!
-              start: '2022-02-09', // a property!
-              end: '2022-02-10' // a property! ** see important note below about 'end' **
-            }
-          ]
+          events: @json($events),
         });
         calendar.render();
       });

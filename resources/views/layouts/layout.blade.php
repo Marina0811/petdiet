@@ -4,7 +4,6 @@
         <meta charset="utf-8">
 
         <!-- CSRF Token -->
-         {{-- 後の章で説明します --}}
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
         {{-- 各ページごとにtitleタグを入れるために@yieldで空けておきます。 --}}
@@ -39,46 +38,24 @@
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         <ul class="navbar-nav mr-auto">
-                            <p>キャンセル</p>
+                            <p></p>
                         </ul>
                         
                         <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <div class="text-center col-md-10 mx-auto col-lg-10">
-                                <h1 contenteditable="true">{{ Session::get('targetDay') }}</h1>
+                        <ul class="navbar-nav">
+                            <div class="text-center col-md-20 mx-auto col-lg-20">
+                                <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}"><h1 contenteditable="true">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</h1></a>
                             </div>
                         </ul>
 
                         <!-- Right Side Of Navbar -->
                         <ul class="navbar-nav ml-auto">
-                            <p>HOME</p>
+                            <p><a href="{{ action('HomeController@index', ['id' => Auth::user()->mypets[0]->id]) }}">HOME</a></p>
                         </ul>
                     </div>
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}
-            
-            <div class="py-5">
-                <div class="container">
-                    <div class="row w-60">
-                        <div class="col-md-6" style="">
-                            <div class="col-md-12 d-flex flex-row justify-content-between">
-                                <div class="row">
-                                    <div class="col-md-4" ></div>
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4 p-2 py-3 d-flex flex-row justify-content-around align-items-center flex-grow-1"></div>
-                                    </div>
-                                    </div>
-                                    </div>
-                                    <div class="text-center col-md-6 mx-auto col-lg-7">
-                                        <h1 contenteditable="true">{{ Session::get('targetDay') }}</h1>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
             
                 {{-- コンテンツをここに入れるため、@yieldで空けておきます。 --}}
                 @yield('content')
