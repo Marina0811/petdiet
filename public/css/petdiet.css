@@ -1,8 +1,9 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #000;
-  color: #fff;
+  background-color: #ffffff;
+  color: #000000;
+  font-family: "Kiwi Maru", serif;
 }
 
 .navbar-laravel {
