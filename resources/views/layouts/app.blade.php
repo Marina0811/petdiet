@@ -23,8 +23,8 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-header navbar-expand-md navbar-light " style="background-color:#ffe4e1">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-dark" style="background-color:#ffe4e1;">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/home') }}">
                     {{ config('app.name','PETDIET') }}
                 </a>
