@@ -1,8 +1,8 @@
 body {
   background-repeat: no-repeat;
   background-position: center;
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #000;
+  color: #fff;
   font-family: "Kiwi Maru", serif;
 }
 
@@ -17,10 +17,6 @@ body {
 
 .nav-link {
   color: #fff !important;
-}
-
-.nav ul li{
-    float: left;
 }
 
 .table-dark {

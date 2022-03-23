@@ -20,37 +20,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/petdiet.css') }}" rel="stylesheet">
+    {{-- Laravel標準で用意されているCSSを読み込みます --}}
+    <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    {{-- この章の後半で作成するCSSを読み込みます --}}
+    <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light fixed-top bg-dark" style="background-color:#ffe4e1;">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/home') }}">
-                    {{ config('app.name','PETDIET') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav">
-                            <div class="text-center col-md-20 mx-auto col-lg-20">
-                                <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}"><h1 contenteditable="true">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</h1></a>
-                            </div>
-                    </ul>
-                    
-                    <!-- Right Side Of Navbar -->
-                        <ul class="navbar-nav ml-auto">
-                            <p><a href="{{ action('HomeController@index', ['id' => Auth::user()->mypets[0]->id]) }}">HOME</a></p>
-                        </ul>
-                        
-                        
+            <div class="container-fluid　justify-content-start row">
+                <div class="col-md-3">    
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        {{ config('app.name','PETDIET') }}
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</a>
+                </div>
+                <div class="col-md-3">
+                    <a href="{{ action('HomeController@index', ['id' => Auth::user()->mypets[0]->id]) }}">HOME</a>
                 </div>
             </div>
         </nav>
