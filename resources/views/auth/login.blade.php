@@ -27,15 +27,15 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffe4e1">
-            <div class="container-fluid　justify-content-start row">
-                <div class="col-md-3">
+            <div class="container-fluid row">
+                <div class="col-md-9 mr-auto">
                     <a class="navbar-brand" href="{{ url('/') }}">
                         {{ config('app.name','PETDIET') }}
                     </a>
                 </div>
                     <!-- Right Side Of Navbar -->
-                    <div class="col-md-3">
-                        <a class="navbar-brand mr-auto">
+                    <div class="container-fluid ml-auto">
+                        <a class="navbar-brand">
                         <!-- Authentication Links -->
                         @guest
                             <div class="nav-item">

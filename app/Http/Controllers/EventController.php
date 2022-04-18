@@ -19,7 +19,7 @@ class EventController extends Controller
         $events = [];
         foreach($weights as $weight) {
             $date = $weight->date;
-            $events[] = array('title' => $weight->weight, 'start' => $date, 'end' => $date);
+            $events[] = array('title' => $weight->weight, 'start' => $date, 'end' => $date, 'backgroundColor' => '#ffffff','textColor' => '#ffc0cb','borderColor' => '#ffffff' );
         }
         return view('calender.calender',compact('events'));
     }

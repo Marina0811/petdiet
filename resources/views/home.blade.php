@@ -6,7 +6,7 @@
 
         <ul>
 
-            <li><a href="{{ action('WeightController@create', ['id' => Auth::user()->mypets[0]->id]) }}">体重登録</a></li
+            <li><a href="{{ action('WeightController@create', ['id' => Auth::user()->mypets[0]->id]) }}">体重登録</a></li>
             <li><a href="#">メモ</a></li>
             <li><a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">カレンダー</a></li>
             <li><a href="#">ペット登録</a></li>

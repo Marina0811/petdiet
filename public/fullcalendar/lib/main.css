@@ -747,6 +747,7 @@ A HORIZONTAL event
 }
 .fc .fc-daygrid-day-events {
     margin-top: 1px; /* needs to be margin, not padding, so that available cell height can be computed */
+    text-align: center;
   }
 .fc {
 
@@ -1464,4 +1465,9 @@ A VERTICAL event
   .fc-theme-bootstrap a:not([href]) {
     color: inherit; /* natural color for navlinks */
   }
+
+
+.fc-col-header-cell {
+  background-color: #D2B48C;
+}
 

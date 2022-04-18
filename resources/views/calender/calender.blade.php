@@ -15,6 +15,14 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
           initialView: 'dayGridMonth',
           events: @json($events),
+          views: {
+            dayGridMonth: { // name of view
+                titleFormat: function(date) {
+                    return date.date.year + '/' + (date.date.month + 1);
+                }
+                // other view-specific options here
+            }
+          }
         });
         calendar.render();
       });

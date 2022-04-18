@@ -20,22 +20,26 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/petdiet.css') }}" rel="stylesheet">
+    {{-- Laravel標準で用意されているCSSを読み込みます --}}
     <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+    {{-- この章の後半で作成するCSSを読み込みます --}}
     <link href="{{ secure_asset('css/admin.css') }}" rel="stylesheet">
 </head>
-
 <body>
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <a class="display-4">PETDIET</a>
-    </div>
-    <div class="container">
-      <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
-          <div class="card-body">
-            <a href="{{ route('login') }}"class="btn btn-lg btn-block btn-outline-primary">ログイン</a>
-            <a href="{{ route('register') }}"class="btn btn-lg btn-block btn-outline-primary">新規登録</a>
-          </div>
-        </div>
+    <div id="app">
+        <nav class="navbar navbar-expand-md navbar-light fixed-top" style="background-color:#ffe4e1;">
+            <div class="container-fluid　justify-content-start row">
+                <div class="col-md-3">    
+                    <a class="navbar-brand" href="{{ url('/home') }}">
+                        {{ config('app.name','PETDIET') }}
+                    </a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="py-4">
+            @yield('content')
+        </main>
     </div>
 </body>
 </html>
