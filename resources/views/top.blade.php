@@ -25,15 +25,15 @@
 </head>
 
 <body>
-    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-      <a class="display-4">PETDIET</a>
+    <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center style="background-color:#e3f2fd;>
+      <h1>PETDIET</h1>
     </div>
     <div class="container">
       <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow">
+        <div class="card mb-4 box-shadow style="background-color:#ffe4e1;">
           <div class="card-body">
-            <a href="{{ route('login') }}"class="btn btn-lg btn-block btn-outline-primary">ログイン</a>
-            <a href="{{ route('register') }}"class="btn btn-lg btn-block btn-outline-primary">新規登録</a>
+            <a href="{{ route('login') }}"class="btn btn-lg btn-block btn-outline-secondary">ログイン</a>
+            <a href="{{ route('register') }}"class="btn btn-lg btn-block btn-outline-secondary">新規登録</a>
           </div>
         </div>
     </div>
