@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Weight;
 
+use Carbon\Carbon;
+
+use Illuminate\Support\Facades\Auth;
+
 class EventController extends Controller
 {
     
@@ -24,16 +28,14 @@ class EventController extends Controller
         return view('calender.calender',compact('events'));
     }
     
-    public function store(Request $request)
+    
+    public function changeDate($date)
     {
-        $event = new Event;
-
-        $event->title = $request->input('title');
-        $event->start = $request->input('start');
-        $event->textColor = $request->input('textColor');
-        $task->save();
-
-        return redirect('/event');
+        $pet_id = Auth::user()->mypets[0]->id;
+        // セッションの日付を変更する
+        session()->put('targetDay', $date);
+        // 体重登録画面へリダイレクト
+        return redirect()->route('weight.create', ['id' => $pet_id]);
     }
-
+    
 }

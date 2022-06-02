@@ -33,46 +33,12 @@
                         {{ config('app.name','PETDIET') }}
                     </a>
                 </div>
-                    <!-- Right Side Of Navbar -->
-                    <div class="container-fluid ml-auto">
-                        <a class="navbar-brand">
-                        <!-- Authentication Links -->
-                        @guest
-                            <div class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('ログイン') }}</a>
-                            </div>
-                            @if (Route::has('register'))
-                                <div class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('新規登録') }}</a>
-                                </div>
-                            @endif
-                        @else
-                            <div class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-                            </div>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                            </div>
-                            </li>
-                        @endguest
-                    </ul>
-                </div>
             </div>
         </nav>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+           
                 <div class="card-header">{{ __('ログイン') }}</div>
 
                 <div class="card-body">
@@ -121,7 +87,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-outline-secondaryy">
                                     {{ __("ログイン") }}
                                 </button>
 

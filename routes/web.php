@@ -11,14 +11,14 @@
 |
 */
 
- Route::get('/top','TopController@index')->name('top');
+ Route::get('/','TopController@index')->name('top');
  
 /* 体重を登録するページに変遷するためのルーティングを作成する*/
 Route::group(['middleware' => 'auth'], function() {
     
 
 
-    Route::get('/weight/create','WeightController@add');
+    Route::get('/weight/create','WeightController@add')->name('weight.create');
     Route::get('/weight/delete','WeightController@delete');
 
     Route::get('/mypet/create', 'MypetController@add');
@@ -27,8 +27,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::post('/mypet/edit', 'MypetController@update');
     Route::post('/mypet/delete', 'MypetController@delete');
     
-    Route::get('weight/create', 'WeightController@add');
-    Route::post('weight/create', 'WeightController@create');
+    Route::post('/weight/create', 'WeightController@create');
     
     Route::get('/home', 'HomeController@index')->name('home');
     
@@ -37,6 +36,8 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/calender', "EventController@index");
     
     Route::post('/store', "EventController@store");
+    
+    Route::get('/changeDate/{date}', "EventController@changeDate")->name('changeDate');
     
 
 });

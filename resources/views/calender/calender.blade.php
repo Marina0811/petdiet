@@ -13,16 +13,24 @@
             document.addEventListener('DOMContentLoaded', function() {
         var calendarEl = document.getElementById('calendar');
         var calendar = new FullCalendar.Calendar(calendarEl, {
-          initialView: 'dayGridMonth',
-          events: @json($events),
-          views: {
-            dayGridMonth: { // name of view
-                titleFormat: function(date) {
-                    return date.date.year + '/' + (date.date.month + 1);
+            navLinks: true,
+            navLinkDayClick: function(date, jsEvent) {
+                var year = date.getUTCFullYear().toString() 
+                var month = (date.getUTCMonth()+1).toString() .padStart(2, "0") 
+                var day = date.getDate().toString().padStart(2, "0")
+                var ymd = year + "-" + month + "-" + day
+                const url = '{{ route('changeDate', '*') }}'.replace('*', ymd);
+                window.location.href = url;
+            },
+            initialView: 'dayGridMonth',
+            events: @json($events),
+            views: {
+                dayGridMonth: { // name of view
+                    titleFormat: function(date) {
+                        return date.date.year + '/' + (date.date.month + 1);
+                    }
                 }
-                // other view-specific options here
             }
-          }
         });
         calendar.render();
       });

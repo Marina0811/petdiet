@@ -1,22 +1,46 @@
 @extends('layouts.app')
 
 @section('content')
+
+<div class="container">
+    <div class="row justify-content-center">
     <h1>Petdiet　Home</h1>
-    <h2>摂取カロリー・消費カロリー表示</h2>
+    
+    <h2>
+        <div class="d-flex flex-column bd-highlight mb-3">
 
-        <ul>
-
-            <li><a href="{{ action('WeightController@create', ['id' => Auth::user()->mypets[0]->id]) }}">体重登録</a></li>
-            <li><a href="#">メモ</a></li>
-            <li><a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">カレンダー</a></li>
-            <li><a href="#">ペット登録</a></li>
+            <div class="p-2 bd-highlight">
+                <a href="{{ action('WeightController@create', ['id' => Auth::user()->mypets[0]->id]) }}">体重登録</a>
+            </div>
+            
+            <div class="p-2 bd-highlight">
+                <a href="#">メモ</a>
+            </div>
+                    
+            <div class="p-2 bd-highlight">
+                <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">カレンダー</a>
+            </div>
+            
+            <div class="p-2 bd-highlight">
+                <a href="#">ペット登録</a>
+            </div>
 
             @if(Auth::user()->mypets->count()>0)
-            <li><a href="{{ action('MypetController@edit', ['id' => Auth::user()->mypets[0]->id]) }}">ペット編集</a></li>
+            <div class="p-2 bd-highlight">
+                <a href="{{ action('MypetController@edit', ['id' => Auth::user()->mypets[0]->id]) }}">ペット編集</a>
+            </div>
             @else
-            <li><a href="{{ action('MypetController@create') }}">ペット登録</a></li>
+            <div class="p-2 bd-highlight">
+                <a href="{{ action('MypetController@create') }}">ペット登録</a>
+            </div>
             @endif
-        </ul>
+        </h2>
+        
+        </div>
+        
+    </h2>
+    </div>
+</div>
     <a class="dropdown-item" href="{{ route('logout') }}"
         onclick="event.preventDefault();
         document.getElementById('logout-form').submit();">

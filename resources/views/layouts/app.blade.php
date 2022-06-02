@@ -27,7 +27,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light fixed-top bg-dark" style="background-color:#ffe4e1;">
+        <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffe4e1;">
             <div class="container-fluid　justify-content-start row">
                 <div class="col-md-3">    
                     <a class="navbar-brand" href="{{ url('/home') }}">
@@ -36,9 +36,6 @@
                 </div>
                 <div class="col-md-6">
                     <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</a>
-                </div>
-                <div class="col-md-3">
-                    <a href="{{ action('HomeController@index', ['id' => Auth::user()->mypets[0]->id]) }}">HOME</a>
                 </div>
             </div>
         </nav>

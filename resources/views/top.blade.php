@@ -30,7 +30,7 @@
     </div>
     <div class="container">
       <div class="card-deck mb-3 text-center">
-        <div class="card mb-4 box-shadow style="background-color:#ffe4e1;">
+        <div class="card mb-4 box-shadow">
           <div class="card-body">
             <a href="{{ route('login') }}"class="btn btn-lg btn-block btn-outline-secondary">ログイン</a>
             <a href="{{ route('register') }}"class="btn btn-lg btn-block btn-outline-secondary">新規登録</a>

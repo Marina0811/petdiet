@@ -27,24 +27,46 @@ class WeightController extends Controller
         
     }
     
-     public function create(Request $request)
+    public function create(Request $request)
     {
         $this->validate($request, Weight::$rules);
-        $weight = new Weight;
-        $form = $request->all();
         
-        unset($form['_token']);
         if (!session()->has('targetDay'))
         {
             session()->put('targetDay', Carbon::today());
             
         }
-        $weight->fill($form);
-        $weight->date= session()->get('targetDay');
-        $weight->pet_id=Auth::user()->mypets[0]->id;
-        $weight->save();
+        $targetDay = session()->get('targetDay');
+        $pet_id = Auth::user()->mypets[0]->id;
+        
+        // DBにデータがあるかチェックする
+        $weight = Weight::where('date', $targetDay)->where('pet_id', $pet_id)->first();
+        
+        if ($weight==NULL) {
+            // 無ければ新規登録
+            $weight = new Weight;
+            $form = $request->all();
+        
+            unset($form['_token']);
+
+            $weight->fill($form);
+            $weight->date= $targetDay;
+            $weight->pet_id=$pet_id;
+            $weight->save();
+        }
+        else{
+            
+            // データがあれば更新
+      
+            $weight_form = $request->all();
+            unset($weight_form['_token']);
+
+            $weight->fill($weight_form)->save();
+
+        }
+        
      
-        return redirect('weight/create');
+        return redirect('/home');
       
         
     }

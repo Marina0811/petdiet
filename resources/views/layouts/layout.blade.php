@@ -14,8 +14,9 @@
         <script src="{{ secure_asset('js/app.js') }}" defer></script>
 
         <!-- Fonts -->
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600" rel="stylesheet" type="text/css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         {{-- Laravel標準で用意されているCSSを読み込みます --}}
