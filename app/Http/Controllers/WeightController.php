@@ -18,9 +18,14 @@ class WeightController extends Controller
         if (empty($request->id)) {
             abort(404);    
         }
+        
+        //var_dump(session()->get('targetDay'));
+        $target_day = new Carbon(session()->get('targetDay'));
+        //var_dump($target_day->format('Y-m-d'));
+        
         // 指定された日付＋ペットの体重を取得する
         $weight = Weight::where('pet_id', $request->id)
-            ->where('date', session()->get('targetDay')->format('Y-m-d'))
+            ->where('date', $target_day->format('Y-m-d'))
             ->first();
         
         return view ('weight.create', ['weight' => $weight]);

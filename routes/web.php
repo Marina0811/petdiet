@@ -19,6 +19,7 @@ Route::group(['middleware' => 'auth'], function() {
 
 
     Route::get('/weight/create','WeightController@add')->name('weight.create');
+    Route::get('/weight/edit','WeightController@edit');
     Route::get('/weight/delete','WeightController@delete');
 
     Route::get('/mypet/create', 'MypetController@add');

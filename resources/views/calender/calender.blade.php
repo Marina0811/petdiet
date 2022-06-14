@@ -15,10 +15,14 @@
         var calendar = new FullCalendar.Calendar(calendarEl, {
             navLinks: true,
             navLinkDayClick: function(date, jsEvent) {
-                var year = date.getUTCFullYear().toString() 
-                var month = (date.getUTCMonth()+1).toString() .padStart(2, "0") 
+                var year = date.getFullYear().toString() 
+                var month = (date.getMonth()+1).toString().padStart(2, "0") 
+                //var month = (date.getUTCMonth()+1).toString().padStart(2, "0") 
                 var day = date.getDate().toString().padStart(2, "0")
                 var ymd = year + "-" + month + "-" + day
+                //console.log(date);
+                //console.log(month);
+                //console.log(ymd);
                 const url = '{{ route('changeDate', '*') }}'.replace('*', ymd);
                 window.location.href = url;
             },

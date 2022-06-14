@@ -41,7 +41,7 @@
                         
                         <!-- Right Side Of Navbar -->
                              <div class="text-center col-md-20 mx-auto col-lg-20">
-                                <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}"><h1 contenteditable="true">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</h1></a>
+                                <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}"><h1 contenteditable="true">{{ Session::get('targetDay') }}</h1></a>
                             </div>
 
                         <!-- Right Side Of Navbar -->
