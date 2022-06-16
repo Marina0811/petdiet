@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 
 class WeightController extends Controller
 {
+    //体重を追加するときのメソッド？
     public function add(Request $request)
     {
         if (empty($request->id)) {

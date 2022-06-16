@@ -28,13 +28,13 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light" style="background-color:#ffe4e1;">
-            <div class="container-fluid　justify-content-start row">
-                <div class="col-md-3">    
+            <div class="d-flex flex-row">
+                <div class="p-2">    
                     <a class="navbar-brand" href="{{ url('/home') }}">
                         {{ config('app.name','PETDIET') }}
                     </a>
                 </div>
-                <div class="col-md-6">
+                <div class="p-2">
                     <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</a>
                 </div>
             </div>
