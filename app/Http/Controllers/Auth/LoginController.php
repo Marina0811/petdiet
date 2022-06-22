@@ -25,8 +25,16 @@ class LoginController extends Controller
      *
      * @var string
      */
+    
     protected $redirectTo = '/home';
-
+    
+    /* protected function redirectTo()
+    {
+    if (Auth::user()->mypets->count()=0) {
+           return '/nopethome';
+        }else{
+        return '/home'}; */
+        
     /**
      * Create a new controller instance.
      *

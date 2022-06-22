@@ -9,6 +9,7 @@
     <h2>
         <div class="d-flex flex-column bd-highlight mb-3">
 
+            @if(Auth::user()->mypets->count()>0)
             <div class="p-2 bd-highlight">
                 <a href="{{ action('WeightController@create', ['id' => Auth::user()->mypets[0]->id]) }}">体重登録</a>
             </div>
@@ -25,7 +26,7 @@
                 <a href="#">ペット登録</a>
             </div>
 
-            @if(Auth::user()->mypets->count()>0)
+            
             <div class="p-2 bd-highlight">
                 <a href="{{ action('MypetController@edit', ['id' => Auth::user()->mypets[0]->id]) }}">ペット編集</a>
             </div>
