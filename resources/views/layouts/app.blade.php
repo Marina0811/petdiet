@@ -34,9 +34,11 @@
                         {{ config('app.name','PETDIET') }}
                     </a>
                 </div>
+                @if(Auth::user()->mypets->count()>0)
                 <div class="p-2">
                     <a href="{{ action('EventController@index', ['id' => Auth::user()->mypets[0]->id]) }}">{{ Session::get('targetDay')->format('Y/m/d(D)')}}</a>
                 </div>
+                @endif
             </div>
         </nav>
 
