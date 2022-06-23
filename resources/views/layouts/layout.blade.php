@@ -36,6 +36,7 @@
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
+                    @if(Auth::user()->mypets->count()>0)
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <!-- Left Side Of Navbar -->
                         
@@ -47,6 +48,7 @@
                         <!-- Right Side Of Navbar -->
                             <p><a href="{{ action('HomeController@index', ['id' => Auth::user()->mypets[0]->id]) }}">HOME</a></p>
                     </div>
+                    @endif
                 </div>
             </nav>
             {{-- ここまでナビゲーションバー --}}

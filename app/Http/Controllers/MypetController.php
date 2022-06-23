@@ -31,7 +31,7 @@ class MypetController extends Controller
         $mypet->user_id=Auth::id();
         $mypet->save();
      
-        return redirect('mypet.create');
+        return redirect('home');
       
         
     }
